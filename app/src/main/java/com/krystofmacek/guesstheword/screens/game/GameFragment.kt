@@ -45,6 +45,9 @@ class GameFragment : Fragment() {
         viewModel.word.observe(viewLifecycleOwner, Observer { newWord ->
             binding.wordText.text = newWord
         })
+        viewModel.eventGameFinished.observe(viewLifecycleOwner, Observer { hasFinished ->
+            if(hasFinished)     gameFinished()
+        })
 
         // Setup click Listeners
         binding.correctButton.setOnClickListener { onCorrect() }
@@ -73,6 +76,7 @@ class GameFragment : Fragment() {
         // Pass the score into Score Fragment / ?: null safe - in case of null pass 0
         val action = GameFragmentDirections.actionGameFragmentToScoreFragment(viewModel.score.value ?: 0)
         NavHostFragment.findNavController(this).navigate(action)
+        viewModel.onGameFinishedComplete()
     }
 
 }
