@@ -11,4 +11,8 @@
     <string name="get_ready">get ready</string>
     <string name="title_text">Guess the word</string>
     <string name="play_button">play</string>
+    
+    
+    <string name="quote_format">\"%s\"</string>
+    <string name="score_format">Current Score: %d</string>
 </resources>
